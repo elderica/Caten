@@ -42,13 +42,13 @@ jobs:
           pkg-config isl --modversion
       - name: Update $PATH
         run: |
-          echo $PATH
-          export PATH=/home/runner/.roswell/bin:$PATH
-          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
+          echo "$PATH"
+          export PATH="/home/runner/.roswell/bin:$PATH"
+          echo "PATH=$HOME/bin:$PATH" >> "$GITHUB_ENV"
       - name: Installing Extra Dependency for testing
         run: make install_extra
       - name: Check $PATH
-        run: echo $PATH
+        run: echo "$PATH"
       - name: (Lisp) rove caten.asd
         if: ${{ matrix.backend == 'lisp' }}
         run: |
